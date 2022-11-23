@@ -1,0 +1,26 @@
+{
+  "name": "projeto15-venda-ludica-back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js",
+    "dev": "npx nodemon src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IdeMoraes/projeto15-venda-ludica-back.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IdeMoraes/projeto15-venda-ludica-back/issues"
+  },
+  "homepage": "https://github.com/IdeMoraes/projeto15-venda-ludica-back#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3"
+  }
+}
