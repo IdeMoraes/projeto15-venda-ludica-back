@@ -2,7 +2,7 @@
   "name": "projeto15-venda-ludica-back",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/app.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -21,6 +21,16 @@
   },
   "homepage": "https://github.com/IdeMoraes/projeto15-venda-ludica-back#readme",
   "dependencies": {
-    "dotenv": "^16.0.3"
+    "bcrypt": "^5.1.0",
+    "chalk": "^5.1.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "i": "^0.3.7",
+    "joi": "^17.7.0",
+    "mongodb": "^4.12.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }
