@@ -4,6 +4,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import router from './routers/index.js';
 import usersRoutes from "./routers/users.routers.js";
+import productsRoutes from "./routers/products.routers.js";
 
 dotenv.config();
 const porta = process.env.PORTA || 5000;
@@ -14,6 +15,7 @@ app.use(json());
 
 app.use(router);
 app.use(usersRoutes);
+app.use(productsRoutes);
 
 app.listen(porta, ()=>{
     console.log(`Listening on ${chalk.blue(porta)}`);
