@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import { usersCollection } from "../db.js";
+import { usersCollection , sessionsCollection} from "../db.js";
 import { v4 as uuidV4 } from "uuid";
 
 export async function postSignUp(req, res){
@@ -12,4 +12,20 @@ export async function postSignUp(req, res){
     }catch{
         res.sendStatus(500);
     }
+}
+
+export async function postLogin(req, res){
+    const userExists = req.userExists;
+    const token = uuidV4();
+
+    try{
+        await sessionsCollection.insertOne({
+            token,
+            userId: userExists._id,
+        });
+        res.send({token});
+    }catch(err){
+        res.sendStatus(500);
+    }
+    
 }
