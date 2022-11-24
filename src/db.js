@@ -7,3 +7,4 @@ await mongoClient.connect().catch((error)=>{console.log(error)});
 const db = mongoClient.db(process.env.BANCO);
 
 export const usersCollection = db.collection("users");
+export const productsCollection = db.collection("products");
