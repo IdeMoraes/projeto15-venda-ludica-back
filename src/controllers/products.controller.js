@@ -33,8 +33,13 @@ export async function getProduct(req,res){
 export async function getCart(req,res){
     const user = req.user;
     try{
-        const cart = await cartCollection.findOne({userId: user._id.toString()});
-        res.send(cart);
+        const products = (await cartCollection.findOne({userId: user._id.toString()})).products;
+        let infoproducts = [];
+        infoproducts = await Promise.all(products.map(async (p)=>{
+            const {name, image} = await productsCollection.findOne({_id: ObjectId(p.productId)});
+            return ({productId: p.productId, quantity: p.quantity, name, image});
+        }));
+        res.send(infoproducts);
     }catch(err){
         res.sendStatus(500);
     }
