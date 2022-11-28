@@ -33,7 +33,7 @@ export async function getProduct(req,res){
 export async function getCart(req,res){
     const user = req.user;
     try{
-        const cart = await cartCollection.findOne({userId: user._id});
+        const cart = await cartCollection.findOne({userId: user._id.toString()});
         res.send(cart);
     }catch(err){
         res.sendStatus(500);
@@ -54,6 +54,17 @@ export async function postCart(req, res){
             res.sendStatus(201);
         }
     } catch (error) {
+        res.sendStatus(500);
+    }
+}
+
+export async function updateCart(req, res){
+    const user = req.user;
+    try {
+            await cartCollection.updateOne({userId: user._id.toString()}, {$set: {products: req.body}});
+            res.sendStatus(200);
+        }
+    catch (error) {
         res.sendStatus(500);
     }
 }
