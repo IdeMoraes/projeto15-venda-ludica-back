@@ -4,7 +4,7 @@ import { usersCollection, productsCollection, cartCollection} from "../db.js";
 export async function createProduct(req, res){
     const product = req.body;
     try{
-        await productsCollection.insertOne(product);
+        await productsCollection.insertMany(product);
         res.sendStatus(201);
     }catch{
         res.sendStatus(500);
